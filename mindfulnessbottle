@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>客製化靜觀瓶面板</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="page">
+    <header class="header">
+      <div class="lang-switch">
+        <button id="btnZh" class="lang-btn active">中文</button>
+        <button id="btnEn" class="lang-btn">EN</button>
+      </div>
+      <h1 id="title">客製化靜觀瓶面板</h1>
+      <p id="subtitle">選擇心情、顏色、形狀、音樂與圖像，立即生成你的靜觀瓶預覽。</p>
+    </header>
+
+    <main class="grid">
+      <section class="panel card">
+        <h2 id="controlsTitle">控制面板</h2>
+
+        <label for="mood" id="labelMood">心情</label>
+        <select id="mood">
+          <option value="anxious">焦慮 / Anxiety</option>
+          <option value="angry">憤怒 / Angry</option>
+          <option value="tired">疲倦 / Tired</option>
+          <option value="happy">開心 / Happy</option>
+          <option value="calm" selected>平靜 / Calm</option>
+        </select>
+
+        <label for="color" id="labelColor">顏色</label>
+        <select id="color">
+          <option value="auto" selected>自動推薦 / Auto</option>
+          <option value="blue">藍色 / Blue</option>
+          <option value="green">綠色 / Green</option>
+          <option value="pink">粉紅 / Pink</option>
+          <option value="purple">紫色 / Purple</option>
+          <option value="teal">藍綠 / Teal</option>
+          <option value="rainbow">彩虹色 / Rainbow</option>
+        </select>
+
+        <label for="shape" id="labelShape">形狀</label>
+        <select id="shape">
+          <option value="round" selected>圓瓶 / Round</option>
+          <option value="tall">細長瓶 / Tall</option>
+          <option value="square">方瓶 / Square</option>
+          <option value="heart">心形瓶 / Heart</option>
+          <option value="tube">試管瓶 / Tube</option>
+        </select>
+
+        <label for="density" id="labelDensity">閃粉密度</label>
+        <select id="density">
+          <option value="low">少量 / Low</option>
+          <option value="mid" selected>中等 / Medium</option>
+          <option value="high">較多 / High</option>
+        </select>
+
+        <label for="imgUpload" id="labelImage">上傳圖像</label>
+        <input id="imgUpload" type="file" accept="image/*" />
+
+        <label for="audioUpload" id="labelAudio">上傳音樂</label>
+        <input id="audioUpload" type="file" accept="audio/*" />
+
+        <label class="toggle">
+          <input type="checkbox" id="musicToggle" checked />
+          <span id="labelMusic">背景音樂 / Background music</span>
+        </label>
+
+        <div class="btn-row">
+          <button id="btnRender">生成預覽 / Generate Preview</button>
+          <button id="btnAnim">開始動畫 / Start Animation</button>
+        </div>
+
+        <div id="info" class="output"></div>
+        <p class="small" id="note">可作為開放日展示，也可再擴充成 PNG 或 GIF 匯出。</p>
+      </section>
+
+      <section class="card preview-card">
+        <canvas id="canvas" width="900" height="900"></canvas>
+      </section>
+    </main>
+  </div>
+
+  <audio id="bgm" loop preload="auto"></audio>
+  <script src="script.js"></script>
+</body>
+</html>
